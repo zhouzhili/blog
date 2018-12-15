@@ -4,4 +4,4 @@
 
 ## 文章目录
 
-- [ ] 2018-12-14 [webpack 区分环境使用 CDN 以及 HtmlWebpackPlugin 插件的编写](https://github.com/zhouzhili/blog/issues/2)
+- [x] 2018-12-14 [webpack 区分环境使用 CDN 以及 HtmlWebpackPlugin 插件的编写](https://github.com/zhouzhili/blog/issues/2)
