@@ -16,3 +16,9 @@ void main() {
 ```
 
 要注意矩阵的位置，**变换矩阵 × 点位矩阵**
+
+3. gl.readPixels
+
+![readPixels](./images/readPixels.png)
+
+需要注意的是，前两个参数 x,y 代表的坐标系原点是 canvas 左下角，向上为 Y 轴正方向，向右为 X 轴正方形
