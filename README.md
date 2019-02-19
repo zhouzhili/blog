@@ -12,6 +12,8 @@
 
 - [x] 2019-01-21 [webGL 学习总结 - 持续更新](https://github.com/zhouzhili/blog/issues/5)
 
+- [ ] 2019-02-19 [工作知识点记录](https://github.com/zhouzhili/blog/issues/6)
+
 - [ ] vue 生命周期函数，懒加载的实现
 
 - [ ] 节流和防抖
