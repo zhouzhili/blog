@@ -14,6 +14,8 @@
 
 - [ ] 2019-02-19 [工作知识点记录](https://github.com/zhouzhili/blog/issues/6)
 
+- [x] 2019-04-01 [React 思想要点](https://github.com/zhouzhili/blog/issues/7)
+
 - [ ] vue 生命周期函数，懒加载的实现
 
 - [ ] 节流和防抖
