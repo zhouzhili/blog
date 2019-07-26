@@ -37,3 +37,47 @@ app.render() // 输出结果为：undefined
 实例 app 的 render 方法里面，将 App 对象的方法 onDismiss 方法赋值给 onDismiss，然后调用 onDismiss(),onDismiss 在调用时并没有显示的调用者，因此调用者会为全局对象，根据上面第 2 条，class 中使用的为严格模式，所有 this 指向的为 undefined.
 
 以上，react 中事件调用需要手动绑定 this，在构造函数中手动 bind 或者使用箭头函数都可以
+
+
+### 5.requestAnimationFrame回调函数中的时间？
+requestAnimationFrame回调函数的时间是DOMHighResTimeStamp，它是自当前文档生命周期开始以来经过的毫秒数，而不是调用requestAnimationFrame开始的时间戳，如果中途调用cancelAnimationFrame取消了循环，在下次再调用requestAnimationFrame的时候时间并不会重置，如果需要重置，需要自己维护时钟。
+
+### 6 数组循环中使用await async
+在循环中使用await有2中方法，一种是使用 for in语法，如下：
+
+```js
+async function start() {
+  const array = [1, 2, 3, 4, 5]
+
+  for (const a in array) {
+    const result = await Promise.resolve(array[a])
+    console.log(result)
+  }
+  console.log('end')
+}
+start()
+```
+另外一种是使用Promise.all结合map方法，如下：
+```js
+async function start() {
+  const array = [1, 2, 3, 4, 5]
+
+  await Promise.all(array.map(async a => {
+    const result = await Promise.resolve(a)
+    console.log(result)
+  }))
+  console.log('end')
+}
+start()
+```
+2种方式都有着相同的输出：
+```
+1
+2
+3
+4
+5
+end
+```
+
+
