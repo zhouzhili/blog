@@ -205,3 +205,5 @@ gRender
   })
 ```
 我们可以专心于编写着色器代码，执行不同的着色器只需要修改gRender.loadGLSL()方法中的着色器名称。
+
+**[注]**:GRender详细代码可前往我的[webGL-webGIS-Learning](https://github.com/zhouzhili/webGL-webGIS-Learning) 代码仓库中查看
