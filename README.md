@@ -17,7 +17,3 @@
 - [x] 2019-04-01 [React 思想要点](https://github.com/zhouzhili/blog/issues/7)
 
 - [x] 2019-04-15 [Mapbox 入门](https://github.com/zhouzhili/blog/issues/8)
-
-- [ ] vue 生命周期函数，懒加载的实现
-
-- [ ] 节流和防抖
