@@ -112,5 +112,7 @@ map.on('load', function() {
     })
 })
 ```
+代码效果如下：
+<img src='./images/mapbox-demo.png' width='500px'/>
 
-[在线示例](http://zhouzhili.github.io/demo/mapbox-3d-build/)
+在线示例可前往 [http://zhouzhili.github.io/demo/mapbox-3d-build/](http://zhouzhili.github.io/demo/mapbox-3d-build/) 查看
