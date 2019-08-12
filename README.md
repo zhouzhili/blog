@@ -18,6 +18,6 @@
 
 - [x] 2019-04-15 [Mapbox 入门](https://github.com/zhouzhili/blog/issues/8)
 
-- [x] 2019-04-15 [webGL 二维有向距离场(SDF)及布尔运算](https://github.com/zhouzhili/blog/issues/11)
+- [x] 2019-07-30 [构建自己的 GLSL 绘图器 - 2d 版](https://github.com/zhouzhili/blog/issues/10)
 
-- [ ] 2019-04-15 [构建自己的 GLSL 绘图器 - 2d 版](https://github.com/zhouzhili/blog/issues/10)
+- [x] 2019-08-07 [webGL 二维有向距离场(SDF)及布尔运算](https://github.com/zhouzhili/blog/issues/11)
