@@ -21,3 +21,5 @@
 - [x] 2019-07-30 [构建自己的 GLSL 绘图器 - 2d 版](https://github.com/zhouzhili/blog/issues/10)
 
 - [x] 2019-08-07 [webGL 二维有向距离场(SDF)及布尔运算](https://github.com/zhouzhili/blog/issues/11)
+
+- [x] 2019-08-15 [webGL 入门-绘制第一个三角形](https://github.com/zhouzhili/blog/issues/12)
