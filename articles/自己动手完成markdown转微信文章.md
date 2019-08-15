@@ -2,8 +2,12 @@
 
 功夫不负有心人，不只是我一个人对微信这个文章编辑器不满了，网上比较好的两个 markdown 转微信文章的是 Lyric 的[wechat-format](https://labs.lyric.im/wxformat/)和胡子哥的[WxMarkdown](http://md.barretlee.com/)两个都写的比较好了，能实现大部分的需求，但是他们都没有提供自定义样式，我只能选择和他们提供的样式一样。这就很束缚了，我喜欢放飞自我的感觉，那么，只能自己动手来实现了。
 
-### 解析 markdown
+步骤有以下：
 
-微信文章编辑器是不支持 markdown 的，但是，是可以支持带样式的 html 文本的。首先，我们要做的就是转换 markdown 到 html 文本。
+1. 解析 markdown，我使用[marked](https://github.com/markedjs/marked)进行解析，marked 会将 markdown 解析为 HTML 元素，并且在期 render 中可以对各个元素进行处理，比如应用自己设定的样式之类，十分方便。
 
-markdown 解析比较好的是
+2. 代码高亮，作为程序员，代码高亮是必不可少的。我使用[highlight.js](https://highlightjs.org/)处理 marked 解析之后的 code 标签进行代码高亮，highlight 有上百种代码样式，但是并不是所有的都很美观，因此我删除了其中的一些样式。在切换高亮风格的时候只需要切换 css 文件即可。我们只需要在初始化的时候创建一个 link 标签，在切换样式的时候动态修改 link 标签的 href 属性就可以了。
+
+3. 样式自定义。自定义样式只需要在默认的样式文件上修改保存即可。本来自定义样式以 css 文件方式存储最为简单，但是在修改 css 的时候获取此刻编辑的标签十分困难，不够直观。因此，我选择以 JSON 存储样式，使用[jsoneditor](https://github.com/josdejong/jsoneditor)作为样式编辑器，我们就可以在编辑某个样式的时候高亮当前编辑的元素，使得编辑更加直观。
+
+由于没有后台支撑，自定义样式目前只支持创建一个(太懒，不想写了),而且保存在浏览器的 localStorage,因此在您清除浏览器缓存之后可能会消失，建议先保存到本地以防不测。
