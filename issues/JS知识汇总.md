@@ -38,12 +38,13 @@ app.render() // 输出结果为：undefined
 
 以上，react 中事件调用需要手动绑定 this，在构造函数中手动 bind 或者使用箭头函数都可以
 
+### 5.requestAnimationFrame 回调函数中的时间？
 
-### 5.requestAnimationFrame回调函数中的时间？
-requestAnimationFrame回调函数的时间是DOMHighResTimeStamp，它是自当前文档生命周期开始以来经过的毫秒数，而不是调用requestAnimationFrame开始的时间戳，如果中途调用cancelAnimationFrame取消了循环，在下次再调用requestAnimationFrame的时候时间并不会重置，如果需要重置，需要自己维护时钟。
+requestAnimationFrame 回调函数的时间是 DOMHighResTimeStamp，它是自当前文档生命周期开始以来经过的毫秒数，而不是调用 requestAnimationFrame 开始的时间戳，如果中途调用 cancelAnimationFrame 取消了循环，在下次再调用 requestAnimationFrame 的时候时间并不会重置，如果需要重置，需要自己维护时钟。
 
-### 6 数组循环中使用await async
-在循环中使用await有2中方法，一种是使用 for in语法，如下：
+### 6 数组循环中使用 await async
+
+在循环中使用 await 有 2 中方法，一种是使用 for in 语法，如下：
 
 ```js
 async function start() {
@@ -57,20 +58,26 @@ async function start() {
 }
 start()
 ```
-另外一种是使用Promise.all结合map方法，如下：
+
+另外一种是使用 Promise.all 结合 map 方法，如下：
+
 ```js
 async function start() {
   const array = [1, 2, 3, 4, 5]
 
-  await Promise.all(array.map(async a => {
-    const result = await Promise.resolve(a)
-    console.log(result)
-  }))
+  await Promise.all(
+    array.map(async a => {
+      const result = await Promise.resolve(a)
+      console.log(result)
+    })
+  )
   console.log('end')
 }
 start()
 ```
-2种方式都有着相同的输出：
+
+2 种方式都有着相同的输出：
+
 ```
 1
 2
@@ -80,4 +87,22 @@ start()
 end
 ```
 
+### 7 Vue 页面刷新不触发 beforeDestroy
 
+`Vue`生命周期是`Vue`对象的生命周期，生命周期函数*是`Vue`对象在创建、挂载和销毁*中调用的一些钩子函数，浏览器刷新重载是浏览器触发，与 Vue 对象无关，因此，在页面刷新的时候不会触发 Vue 对象的`beforeDestroy`与`destroyed`生命周期函数。如果我们需要在页面刷新的时候处理某些逻辑的话，需要监听 window 对象的`beforeunload`事件。
+
+我们可以在 Vue 组件的`created`函数中添加`beforeunload`监听：
+
+```js
+created () {
+    window.addEventListener('beforeunload', handler)
+},
+```
+
+在 Vue 组件的`beforeDestroy`中移除监听:
+
+```js
+beforeDestroy () {
+    window.removeEventListener('beforeunload', handler)
+}
+```
