@@ -26,4 +26,4 @@
 
 - [x] 2019-08-26 [简单解析虚拟 DOM](https://github.com/zhouzhili/blog/issues/14)
 
-- [] 2019-11-04 Vue 组件扩展及权限管理的实现技巧
+- [x] 2019-11-04 [Vue 组件扩展及权限管理的实现技巧](https://github.com/zhouzhili/blog/issues/15)
