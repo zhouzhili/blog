@@ -39,26 +39,26 @@
       }
       .orth-lb {
         border-bottom: 50px solid red;
-        border-right: 50px solid transparent;
+        border-right-width: 50px;
       }
       .orth-rb {
         border-bottom: 50px solid red;
-        border-left: 50px solid transparent;
+        border-left-width: 50px;
       }
       .orth-tl {
         border-top: 50px solid red;
-        border-right: 50px solid transparent;
+        border-right-width: 50px;
       }
       .orth-tr {
         border-top: 50px solid red;
-        border-left: 50px solid transparent;
+        border-left-width: 50px ;
       }
 
-      .msg-box-wrap {
+      .msg-box {
         width: 200px;
         position: relative;
       }
-      .msg-box {
+      .msg-box-content {
         background: #fff;
         height: 40px;
         border: 1px solid #ddd;
@@ -66,7 +66,7 @@
         border-radius: 8px;
         margin-bottom: 8px;
       }
-      .msg-box::before {
+      .msg-box-content::before {
         content: ' ';
         position: absolute;
         z-index: 1;
@@ -77,7 +77,7 @@
         border: 8px solid transparent;
         border-top-color: #ddd;
       }
-      .msg-box::after {
+      .msg-box-content::after {
         content: ' ';
         position: absolute;
         z-index: 1;
@@ -144,14 +144,13 @@
       <div class="orth-triangle orth-tr"></div>
     </div>
 
-    <div class="msg-box-wrap">
-      <div class="msg-box"></div>
+    <div class="msg-box">
+      <div class="msg-box-content"></div>
     </div>
 
     <div class="clip-content">
       <div class="tl-triangle"></div>
       <div class="br-triangle"></div>
     </div>
-    <div></div>
   </body>
 </html>
