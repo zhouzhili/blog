@@ -4,7 +4,7 @@
 
 - [x] 2018-12-14 [webpack 区分环境使用 CDN 以及 HtmlWebpackPlugin 插件的编写](https://github.com/zhouzhili/blog/issues/2)
 
-- [x] 2019-01-10 [使用 Mpvue 开发小程序总结](https://github.com/zhouzhili/blog/issues/3)
+- [x] 2019-01-10 [使用 MpVue 开发小程序总结](https://github.com/zhouzhili/blog/issues/3)
 
 - [x] 2019-01-11 [JS 知识汇总 - 持续更新](https://github.com/zhouzhili/blog/issues/4)
 
@@ -27,3 +27,7 @@
 - [x] 2019-08-26 [简单解析虚拟 DOM](https://github.com/zhouzhili/blog/issues/14)
 
 - [x] 2019-11-04 [Vue 组件扩展及权限管理的实现技巧](https://github.com/zhouzhili/blog/issues/15)
+
+- [x] 2019-03-18 [常用正则收集：持续更新](https://github.com/zhouzhili/blog/issues/16)
+
+- [x] 2019-05-17 [使用 CSS 绘制三角形](https://github.com/zhouzhili/blog/issues/17)
