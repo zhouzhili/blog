@@ -31,3 +31,5 @@
 - [x] 2020-03-18 [常用正则收集：持续更新](https://github.com/zhouzhili/blog/issues/16)
 
 - [x] 2020-05-17 [使用 CSS 绘制三角形](https://github.com/zhouzhili/blog/issues/17)
+
+- [ ] 2020-08-14 [Nginx简单配置]()
