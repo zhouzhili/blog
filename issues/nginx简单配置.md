@@ -93,3 +93,101 @@ location ~* \.(png|jpg|jpeg|gif|gz|svg|mp4|ogg|ogv|webm|htc|xml|woff)(.*) {
   expires 7d;
 }
 ```
+
+#### 4.配置二级域名
+
+域名注册和使用比较麻烦，而且注册完一个域名后如果我们只有一个服务器，但是想弄多个网站的话，我们可以配置一个二级域名，主域名注册之后二级域名不需要注册即可使用，nginx 同样支持二级域名的配置。
+
+例如，我们的主域名为 test.cn，我们在服务器厂商那么配置了一个二级域名 a.test.cn，首先，我们的主配置文件 `nginx.conf` 配置和 1 里面的配置基本相同，主要区别在于 `http` 中的配置，`nginx.conf` 的 `http` 配置如下：
+
+```nginx
+http {
+  # hide nginx version
+  server_tokens off;
+
+  sendfile on;
+  tcp_nopush on;
+  tcp_nodelay on;
+  keepalive_timeout 65;
+  types_hash_max_size 2048;
+
+  include /etc/nginx/mime.types;
+  default_type application/octet-stream;
+
+  # 新增
+  include /etc/nginx/conf.d/*.conf;
+}
+```
+
+首先，我们新建一个 conf.d 文件夹来存放我们不同网站的 server 配置，并在`nginx.conf`中 include 它们。
+
+我们在conf.d文件夹中新建一个 `test.cn.conf` 配置文件，内容如下：
+
+```nginx
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  # server name
+  server_name www.test.cn test.cn;
+
+  return 301 https://$server_name$request_uri;
+}
+server {
+  listen 443 ssl http2 default_server;
+  listen [::]:443 ssl http2 default_server;
+  # server name
+  server_name www.test.cn test.cn;
+  root /usr/share/nginx/html/www;
+
+  #设置长连接
+  keepalive_timeout 70;
+
+  #HSTS策略
+  add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+
+  ssl_certificate "/etc/nginx/cert/4332672_www.test.cn.pem";
+  ssl_certificate_key "/etc/nginx/cert/4332672_www.test.cn.key";
+  ssl_session_cache shared:SSL:10m;
+  ssl_session_timeout 10m;
+  ssl_ciphers PROFILE=SYSTEM;
+  ssl_prefer_server_ciphers on;
+
+  # Load configuration files for the default server block.
+  include /etc/nginx/default.d/*.conf;
+
+  location / {
+    index index.html ;
+  }
+
+  error_page 404 /404.html;
+  location = /40x.html {
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+  }
+}
+```
+
+主域名`test.cn` 我们使用https，并将http请求重定向到https。
+
+另外，我们在在conf.d文件夹中新建一个 `a.test.cn.conf` 二级域名配置文件，内容如下：
+
+```nginx
+server {
+  listen 80;
+  # 服务名
+  server_name a.test.cn;
+  root /usr/share/nginx/html/a;
+
+  location / {
+    index index.html ;
+  }
+
+  include /etc/nginx/default.d/*.conf;
+}
+```
+
+**注意：子域名 a.test.cn的server_name需要设置为`a.test.cn` 不可添加www前缀**，这样我们就完成了主域名和子域名的配置
+
+nginx的基本使用如上所示，还有常用的 `proxy_pass` 待后面用到了再补充
