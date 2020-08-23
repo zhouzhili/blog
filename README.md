@@ -32,4 +32,8 @@
 
 - [x] 2020-05-17 [使用 CSS 绘制三角形](https://github.com/zhouzhili/blog/issues/17)
 
-- [ ] 2020-08-14 [Nginx简单配置]()
+- [x] 2020-08-14 [Nginx简单配置](https://github.com/zhouzhili/blog/issues/18)
+
+- [ ] 2020-08-21 [webpack按需加载配置和babel编译]()
+
+- [ ] 2020-08-23 [面试常问100题]()
