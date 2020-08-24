@@ -32,4 +32,4 @@
 
 - [x] 2020-05-17 [使用 CSS 绘制三角形](https://github.com/zhouzhili/blog/issues/17)
 
-- [ ] 2020-08-14 [Nginx简单配置]()
+- [x] 2020-08-14 [Nginx简单配置](https://github.com/zhouzhili/blog/issues/18)
