@@ -34,6 +34,6 @@
 
 - [x] 2020-08-14 [Nginx简单配置](https://github.com/zhouzhili/blog/issues/18)
 
-- [ ] 2020-08-21 [webpack按需加载配置和babel编译]()
+- [x] 2020-10-10 [webpack按需加载配置和babel编译](https://github.com/zhouzhili/blog/issues/19)
 
-- [ ] 2020-08-23 [面试常问100题]()
+- [x] 2020-10-11 [面试常问题](https://github.com/zhouzhili/blog/issues/20)
